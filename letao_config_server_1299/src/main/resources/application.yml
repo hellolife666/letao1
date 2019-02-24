@@ -1,0 +1,16 @@
+server:
+  port: 1299
+spring:
+  application:
+    name: spring-cloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/wbls8411/micro-wb.git #git文件地址远程的官网上的和本地没啥区别 要联网
+          username: aidan20080709@126.com
+          password: wenbing888
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka

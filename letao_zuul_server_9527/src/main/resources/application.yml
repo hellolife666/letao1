@@ -1,0 +1,22 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: microservice-zuul-gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka #注册到这个服务注册中心
+  instance:
+    instance-id: gateway-9527 #显示的应用服务的名字而已
+    prefer-ip-address: true  #是否显示 地址在服务中心。
+zuul:
+  routes:
+      User.serviceId: employee-provider # http://localhost:9527/microservice-zuul-gateway/user-provider/provider/user/5 太长了这样配置去别名一样
+      User.path: /employee/**
+  ignored-services: "*" #忽略 或者住址 直接访问服务 而不通过路由请求
+  prefix: /letao   # 访问前缀
+
+
+# 匹配 /xxx开头的请求映射到user-provider1 这个服务上 还有其他的名字 多个就配置多个映射路径 找到对应的服务名称
+

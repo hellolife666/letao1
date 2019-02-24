@@ -1,0 +1,13 @@
+server:
+  port: 7001
+eureka:
+  instance:
+    hostname: local #显示的名字而已
+  client:
+    fetch-registry: true #是否注册到eureka
+    register-with-eureka: true #是否从服务获取注册信息
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+spring:
+  application:
+    name: server1 #这里是另一个中心的地址 搞集群是在这里搞
